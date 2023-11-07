@@ -5,14 +5,11 @@ import com.ll.global.common.Req;
 import java.util.Scanner;
 
 public class DispatcherServlet {
-    public Req parseRequest(Scanner scanner) {
+    public Req parseRequest(String input) {
         Req req;
         String url;
         String params;
 
-        System.out.print("명령) ");
-
-        String input = scanner.nextLine();
         int randomIndex = input.indexOf("?");
 
         if (!(randomIndex == -1)) {

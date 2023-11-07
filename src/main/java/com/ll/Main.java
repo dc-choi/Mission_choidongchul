@@ -15,13 +15,17 @@ public class Main {
             try {
                 DispatcherServlet dispatcherServlet = new DispatcherServlet();
 
-                Req req = dispatcherServlet.parseRequest(scanner);
+                System.out.print("명령) ");
+                String input = scanner.nextLine();
+
+                Req req = dispatcherServlet.parseRequest(input);
 
                 dispatcherServlet.doDispatch(req, scanner);
 
                 if (req.getUrl().equals(Req.END)) break;
             } catch (Exception e) {}
         }
+
         scanner.close();
     }
 }

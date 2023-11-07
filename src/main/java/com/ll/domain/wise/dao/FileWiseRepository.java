@@ -6,8 +6,8 @@ import com.ll.domain.wise.entity.Wise;
 import java.util.List;
 
 public class FileWiseRepository implements WiseRepository {
-    private final String filePath;
-    private static List<Wise> wises;
+    protected final String filePath;
+    protected static List<Wise> wises;
 
     public FileWiseRepository() {
         this.filePath = Files.DATABASE_PATH;
@@ -104,12 +104,5 @@ public class FileWiseRepository implements WiseRepository {
         }
 
         return max + 1;
-    }
-
-    /**
-     * wises의 모든 객체를 없앤다 (테스트 전용)
-     */
-    public void clean() {
-        wises.clear();
     }
 }

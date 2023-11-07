@@ -14,7 +14,7 @@ class HandlerMappingTest {
     @DisplayName("종료 요청 핸들링 동작여부")
     void end() {
         Scanner scanner = TestUtil.generateScanner(Req.END);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.END);
@@ -24,7 +24,7 @@ class HandlerMappingTest {
     @DisplayName("등록 요청 핸들링 동작여부")
     void add() {
         Scanner scanner = TestUtil.generateScanner(Req.ADD);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.ADD);
@@ -34,7 +34,7 @@ class HandlerMappingTest {
     @DisplayName("목록 요청 핸들링 동작여부")
     void list() {
         Scanner scanner = TestUtil.generateScanner(Req.LIST);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.LIST);
@@ -44,7 +44,7 @@ class HandlerMappingTest {
     @DisplayName("삭제 요청 핸들링 동작여부")
     void remove() {
         Scanner scanner = TestUtil.generateScanner(Req.REMOVE);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.REMOVE);
@@ -54,7 +54,7 @@ class HandlerMappingTest {
     @DisplayName("수정 요청 핸들링 동작여부")
     void modify() {
         Scanner scanner = TestUtil.generateScanner(Req.MODITY);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.MODITY);
@@ -64,7 +64,7 @@ class HandlerMappingTest {
     @DisplayName("빌드 요청 핸들링 동작여부")
     void build() {
         Scanner scanner = TestUtil.generateScanner(Req.BUILD);
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.BUILD);
@@ -74,7 +74,7 @@ class HandlerMappingTest {
     @DisplayName("알 수 없는 요청 요청 핸들링 동작여부")
     void notDefind() {
         Scanner scanner = TestUtil.generateScanner("qwerqwerqwerqwerqwer");
-        Req req = new DispatcherServlet().parseRequest(scanner);
+        Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
         String url = new HandlerMapping().getHandler(req);
 
         assertThat(url).isEqualTo(Req.NOT_DEFIND);

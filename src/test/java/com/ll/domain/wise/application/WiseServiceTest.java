@@ -14,9 +14,14 @@ class WiseServiceTest {
     public static final String TEST_FLIE_PATH = "src/test/resources/file";
     public static final String TEST_JSON_PATH = TEST_FLIE_PATH + "/data.json";
     public static final String TEST_DATABASE_PATH = TEST_FLIE_PATH + "/file.json";
-    private static final FileWiseRepository wiseRepository = new FileWiseRepository(TEST_DATABASE_PATH, TEST_FLIE_PATH);
+    private static final TestFileWiseRepository wiseRepository = new TestFileWiseRepository(TEST_DATABASE_PATH, TEST_FLIE_PATH);
     private static final WiseService wiseService = new WiseService(wiseRepository);
 
+    /**
+     * 테스트는 기본적으로 서로 의존하면 안됨.
+     * 파일을 통해 영속성이 추가되어서 파일에 저장된 데이터를 통해 서로 의존될 수 있음.
+     * 그래서 매 테스트를 진행하기 전, 데이터를 제거한다.
+     */
     @BeforeEach
     void beforeEach() {
         wiseRepository.clean();
