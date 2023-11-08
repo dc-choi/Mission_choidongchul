@@ -1,6 +1,6 @@
 package com.ll.domain.wise.api;
 
-import com.ll.domain.file.entity.Files;
+import com.ll.global.common.util.FileUtil;
 import com.ll.domain.wise.application.WiseService;
 import com.ll.domain.wise.entity.Wise;
 import com.ll.global.common.Req;
@@ -78,7 +78,7 @@ public class WiseController {
     }
 
     public void build(Req req) throws RuntimeException {
-        wiseService.build(Files.JSON_PATH);
+        wiseService.build(FileUtil.JSON_PATH);
         System.out.println("data.json 파일의 내용이 갱신되었습니다.");
     }
 }

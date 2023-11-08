@@ -1,6 +1,6 @@
 package com.ll.domain.wise.dao;
 
-import com.ll.domain.file.entity.Files;
+import com.ll.global.common.util.FileUtil;
 import com.ll.domain.wise.entity.Wise;
 
 import java.util.List;
@@ -10,13 +10,13 @@ public class FileWiseRepository implements WiseRepository {
     protected static List<Wise> wises;
 
     public FileWiseRepository() {
-        this.filePath = Files.DATABASE_PATH;
-        wises = Files.parseFile(Files.DATABASE_PATH);
+        this.filePath = FileUtil.DATABASE_PATH;
+        wises = FileUtil.parseFile(FileUtil.DATABASE_PATH);
     }
 
     public FileWiseRepository(String filePath, String dirPath) {
         this.filePath = filePath;
-        wises = Files.parseFile(filePath, dirPath);
+        wises = FileUtil.parseFile(filePath, dirPath);
     }
 
     @Override
@@ -83,12 +83,12 @@ public class FileWiseRepository implements WiseRepository {
 
     @Override
     public void save() {
-        Files.buildFile(wises, this.filePath);
+        FileUtil.buildFile(wises, this.filePath);
     }
 
     @Override
     public void save(String filePath) {
-        Files.buildFile(wises, filePath);
+        FileUtil.buildFile(wises, filePath);
     }
 
     /**

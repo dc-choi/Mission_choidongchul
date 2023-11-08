@@ -3,8 +3,6 @@ package com.ll;
 import com.ll.global.common.Req;
 import com.ll.global.servlet.DispatcherServlet;
 
-import java.io.FileInputStream;
-import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +18,7 @@ public class Main {
 
                 Req req = dispatcherServlet.parseRequest(input);
 
-                dispatcherServlet.doDispatch(req, scanner);
+                dispatcherServlet.run(req, scanner);
 
                 if (req.getUrl().equals(Req.END)) break;
             } catch (Exception e) {}

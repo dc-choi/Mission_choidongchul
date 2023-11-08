@@ -16,9 +16,7 @@ public class HandlerAdapter {
         this.wiseController = wiseController;
     }
 
-    public void handle(Req req, Scanner scanner) throws RuntimeException {
-        // ModelAndView modelAndView = null; // 실제 스프링로직을 이해할 수 있도록 주석으로 남김.
-
+    public void handling(Req req, Scanner scanner) throws RuntimeException {
         switch (req.getUrl()) {
             case Req.END -> wiseController.end(req);
             case Req.ADD -> wiseController.add(req, scanner);
@@ -28,8 +26,5 @@ public class HandlerAdapter {
             case Req.BUILD -> wiseController.build(req);
             default -> System.out.println("알 수 없는 명령어입니다.");
         }
-
-        // return modelAndView;
     }
 }
-

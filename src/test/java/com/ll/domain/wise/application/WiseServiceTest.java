@@ -1,6 +1,5 @@
 package com.ll.domain.wise.application;
 
-import com.ll.domain.wise.dao.FileWiseRepository;
 import com.ll.domain.wise.entity.Wise;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

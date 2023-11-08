@@ -24,10 +24,10 @@ public class DispatcherServlet {
         return req;
     }
 
-    public void doDispatch(Req req, Scanner scanner) {
-        String validUrl = new HandlerMapping().getHandler(req);
+    public void run(Req req, Scanner scanner) {
+        String validUrl = new HandlerMapping().getUrl(req);
         req.setUrl(validUrl);
 
-        new HandlerAdapter().handle(req, scanner);
+        new HandlerAdapter().handling(req, scanner);
     }
 }

@@ -15,7 +15,7 @@ class HandlerMappingTest {
     void end() {
         Scanner scanner = TestUtil.generateScanner(Req.END);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.END);
     }
@@ -25,7 +25,7 @@ class HandlerMappingTest {
     void add() {
         Scanner scanner = TestUtil.generateScanner(Req.ADD);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.ADD);
     }
@@ -35,7 +35,7 @@ class HandlerMappingTest {
     void list() {
         Scanner scanner = TestUtil.generateScanner(Req.LIST);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.LIST);
     }
@@ -45,7 +45,7 @@ class HandlerMappingTest {
     void remove() {
         Scanner scanner = TestUtil.generateScanner(Req.REMOVE);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.REMOVE);
     }
@@ -55,7 +55,7 @@ class HandlerMappingTest {
     void modify() {
         Scanner scanner = TestUtil.generateScanner(Req.MODITY);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.MODITY);
     }
@@ -65,7 +65,7 @@ class HandlerMappingTest {
     void build() {
         Scanner scanner = TestUtil.generateScanner(Req.BUILD);
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.BUILD);
     }
@@ -75,7 +75,7 @@ class HandlerMappingTest {
     void notDefind() {
         Scanner scanner = TestUtil.generateScanner("qwerqwerqwerqwerqwer");
         Req req = new DispatcherServlet().parseRequest(scanner.nextLine());
-        String url = new HandlerMapping().getHandler(req);
+        String url = new HandlerMapping().getUrl(req);
 
         assertThat(url).isEqualTo(Req.NOT_DEFIND);
     }

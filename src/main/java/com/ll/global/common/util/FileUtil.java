@@ -1,4 +1,4 @@
-package com.ll.domain.file.entity;
+package com.ll.global.common.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Files {
+public class FileUtil {
     public static final String FLIE_PATH = "src/main/resources/file";
     public static final String JSON_PATH = FLIE_PATH + "/data.json";
     public static final String DATABASE_PATH = FLIE_PATH + "/file.json";
@@ -19,7 +19,7 @@ public class Files {
         File file;
 
         try {
-            file = checkFile(filePath);
+            file = FileUtil.checkFile(filePath);
             OBJECT_MAPPER.writeValue(file, wises);
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,19 +30,19 @@ public class Files {
         File file;
 
         try {
-            file = checkFile(filePath, dirPath);
+            file = FileUtil.checkFile(filePath, dirPath);
             OBJECT_MAPPER.writeValue(file, wises);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static List<Wise> parseFile (String filePath) {
+    public static List<Wise> parseFile(String filePath) {
         File file;
         List<Wise> wises = new ArrayList<>();
 
         try {
-            file = checkFile(filePath);
+            file = FileUtil.checkFile(filePath);
             wises = OBJECT_MAPPER.readValue(file, new TypeReference<List<Wise>>() {
             });
         } catch (Exception e) {
@@ -52,12 +52,12 @@ public class Files {
         return wises;
     }
 
-    public static List<Wise> parseFile (String filePath, String dirPath) {
+    public static List<Wise> parseFile(String filePath, String dirPath) {
         File file;
         List<Wise> wises = new ArrayList<>();
 
         try {
-            file = checkFile(filePath, dirPath);
+            file = FileUtil.checkFile(filePath, dirPath);
             wises = OBJECT_MAPPER.readValue(file, new TypeReference<List<Wise>>() {
             });
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class Files {
     }
 
     private static File checkFile(String filePath) throws IOException {
-        File file = new File(FLIE_PATH);
+        File file = new File(FileUtil.FLIE_PATH);
         if (!file.exists()) file.mkdir();
 
         file = new File(filePath);
@@ -79,8 +79,7 @@ public class Files {
     private static File checkFile(String filePath, String dirPath) throws IOException {
         File file;
 
-        if (dirPath.contains(FLIE_PATH)) file = new File(FLIE_PATH);
-        else file = new File(dirPath);
+        file = new File(dirPath);
         if (!file.exists()) file.mkdir();
 
         file = new File(filePath);

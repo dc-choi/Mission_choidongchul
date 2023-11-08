@@ -3,7 +3,7 @@ package com.ll.global.servlet;
 import com.ll.global.common.Req;
 
 public class HandlerMapping {
-    public String getHandler(Req req) {
+    public String getUrl(Req req) {
         String result = null;
 
         switch (req.getUrl()) {
